@@ -5,40 +5,27 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import PageNotFound from './lib/PageNotFound';
 import { AuthProvider, useAuth } from '@/lib/AuthContext';
 import UserNotRegisteredError from '@/components/UserNotRegisteredError';
-import SiteLayout from './components/layout/SiteLayout';
-import HomePage from './pages/yan/HomePage';
-import SobrePage from './pages/yan/SobrePage';
-import EspecialidadesPage from './pages/yan/EspecialidadesPage';
-import ContatoPage from './pages/yan/ContatoPage';
+import DrYan from './pages/DrYan';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
 
   if (isLoadingPublicSettings || isLoadingAuth) {
     return (
-      <div className="fixed inset-0 flex items-center justify-center">
-        <div className="w-8 h-8 border-4 border-slate-200 border-t-primary rounded-full animate-spin"></div>
+      <div className="fixed inset-0 flex items-center justify-center bg-background">
+        <div className="w-8 h-8 border-2 border-border border-t-primary rounded-full animate-spin" />
       </div>
     );
   }
 
   if (authError) {
-    if (authError.type === 'user_not_registered') {
-      return <UserNotRegisteredError />;
-    } else if (authError.type === 'auth_required') {
-      navigateToLogin();
-      return null;
-    }
+    if (authError.type === 'user_not_registered') return <UserNotRegisteredError />;
+    if (authError.type === 'auth_required') { navigateToLogin(); return null; }
   }
 
   return (
     <Routes>
-      <Route element={<SiteLayout />}>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/sobre" element={<SobrePage />} />
-        <Route path="/especialidades" element={<EspecialidadesPage />} />
-        <Route path="/contato" element={<ContatoPage />} />
-      </Route>
+      <Route path="/" element={<DrYan />} />
       <Route path="*" element={<PageNotFound />} />
     </Routes>
   );
@@ -54,7 +41,7 @@ function App() {
         <Toaster />
       </QueryClientProvider>
     </AuthProvider>
-  )
+  );
 }
 
-export default App
+export default App;
