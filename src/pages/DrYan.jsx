@@ -38,7 +38,7 @@ function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between h-20">
         {/* Logo */}
-        <button onClick={() => go("#inicio")} className="font-heading text-2xl font-light tracking-widest text-primary">
+        <button onClick={() => go("#inicio")} className={`font-heading text-2xl font-light tracking-widest transition-colors duration-300 ${scrolled ? "text-primary" : "text-white"}`}>
           DR. LUIS EDUARDO
         </button>
 
@@ -48,7 +48,9 @@ function Navbar() {
             <button
               key={l.href}
               onClick={() => go(l.href)}
-              className="font-body text-xs tracking-widest text-foreground/70 hover:text-primary transition-colors duration-300"
+              className={`font-body text-xs tracking-widest transition-colors duration-300 ${
+                scrolled ? "text-foreground/70 hover:text-primary" : "text-white/90 hover:text-white"
+              }`}
             >
               {l.label}
             </button>
@@ -114,6 +116,8 @@ function Hero() {
           className="h-full max-h-[95vh] w-auto object-contain object-bottom"
           style={{ filter: "drop-shadow(-20px 0 60px rgba(0,0,0,0.35))" }}
         />
+        {/* Bottom fade to hide any hard edge */}
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[hsl(195,60%,30%)] to-transparent" />
       </div>
 
       {/* Subtle radial glow */}
@@ -260,12 +264,17 @@ function Sobre() {
     <section id="sobre" className="bg-background">
       <div className="max-w-7xl mx-auto grid lg:grid-cols-2 min-h-[80vh]">
         {/* Photo with transparent bg */}
-        <div className="relative flex items-end justify-center min-h-[50vh] lg:min-h-0 bg-[hsl(210,25%,93%)]">
+        <div className="relative flex items-end justify-center min-h-[50vh] lg:min-h-full bg-[hsl(210,25%,93%)] overflow-hidden">
           <img
             src={ABOUT_IMG}
             alt="Dr. Luis Eduardo Younis"
-            className="w-auto h-full max-h-[540px] object-contain object-bottom"
-            style={{ filter: "drop-shadow(0 10px 40px rgba(30,50,100,0.18))" }}
+            className="w-auto object-contain object-bottom"
+            style={{
+              height: "90%",
+              minHeight: "420px",
+              maxHeight: "640px",
+              filter: "drop-shadow(0 10px 40px rgba(30,50,100,0.18))"
+            }}
           />
         </div>
         {/* Text */}
