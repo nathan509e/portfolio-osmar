@@ -2,9 +2,10 @@ import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight, Menu, X, MessageCircle, Phone, Mail, MapPin, Clock, Plus, Minus } from "lucide-react";
 
-const DOCTOR_IMG = "https://media.base44.com/images/public/69e9655d2e648f5936dc0caa/88c5e77c5_generated_image.png";
+const HERO_IMG = "https://media.base44.com/images/public/69e9655d2e648f5936dc0caa/96691f67c_fotodu3-Photoroom.png";
+const ABOUT_IMG = "https://media.base44.com/images/public/69e9655d2e648f5936dc0caa/dd39ff375_fotodudu2-Photoroom.png";
 const WHATSAPP = "5511999990000";
-const WA_LINK = `https://wa.me/${WHATSAPP}?text=Olá,%20Dr.%20Yan!%20Gostaria%20de%20agendar%20uma%20consulta.`;
+const WA_LINK = `https://wa.me/${WHATSAPP}?text=Olá,%20Dr.%20Luis%20Eduardo!%20Gostaria%20de%20agendar%20uma%20consulta.`;
 
 /* ─── NAV ─── */
 function Navbar() {
@@ -38,7 +39,7 @@ function Navbar() {
       <div className="max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between h-20">
         {/* Logo */}
         <button onClick={() => go("#inicio")} className="font-heading text-2xl font-light tracking-widest text-primary">
-          DR. YAN
+          DR. LUIS EDUARDO
         </button>
 
         {/* Desktop */}
@@ -103,14 +104,20 @@ function Navbar() {
 /* ─── HERO ─── */
 function Hero() {
   return (
-    <section id="inicio" className="relative h-screen min-h-[600px] flex items-center justify-start overflow-hidden">
-      {/* Background photo */}
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${DOCTOR_IMG})` }}
-      />
-      {/* Left gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-r from-[hsl(30,25%,20%)]/75 via-[hsl(30,25%,20%)]/40 to-transparent" />
+    <section id="inicio" className="relative h-screen min-h-[600px] flex items-center overflow-hidden bg-gradient-to-br from-[hsl(215,55%,18%)] via-[hsl(215,50%,24%)] to-[hsl(195,60%,30%)]">
+
+      {/* Doctor PNG — right side, transparent bg */}
+      <div className="absolute right-0 bottom-0 h-full flex items-end justify-end pointer-events-none select-none">
+        <img
+          src={HERO_IMG}
+          alt="Dr. Luis Eduardo Younis"
+          className="h-full max-h-[95vh] w-auto object-contain object-bottom"
+          style={{ filter: "drop-shadow(-20px 0 60px rgba(0,0,0,0.35))" }}
+        />
+      </div>
+
+      {/* Subtle radial glow */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_left_center,_hsl(195,70%,45%,0.15)_0%,_transparent_60%)]" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 w-full">
         <motion.div
@@ -119,23 +126,26 @@ function Hero() {
           transition={{ duration: 1, ease: "easeOut" }}
           className="max-w-xl"
         >
-          <p className="font-body text-xs tracking-[0.3em] text-white/70 uppercase mb-4">
+          <p className="font-body text-xs tracking-[0.3em] text-white/60 uppercase mb-4">
             CRM/SP 000000
           </p>
-          <h1 className="font-heading text-6xl md:text-8xl font-light text-white leading-none mb-2">
-            DR. YAN
+          <h1 className="font-heading text-6xl md:text-8xl font-light text-white leading-none mb-1">
+            DR. LUIS
           </h1>
-          <p className="font-body text-xs tracking-[0.35em] text-white/80 uppercase mb-8">
-            CLÍNICA MÉDICA & MEDICINA PREVENTIVA
+          <h1 className="font-heading text-6xl md:text-8xl font-light text-[hsl(195,70%,70%)] leading-none mb-3">
+            EDUARDO
+          </h1>
+          <p className="font-body text-xs tracking-[0.35em] text-white/70 uppercase mb-8">
+            MEDICINA DA FAMÍLIA E COMUNIDADE
           </p>
-          <p className="font-heading text-xl md:text-2xl italic font-light text-white/90 leading-relaxed max-w-md mb-10">
+          <p className="font-heading text-xl md:text-2xl italic font-light text-white/85 leading-relaxed max-w-md mb-10">
             Cuidar da sua saúde com atenção, ciência e humanidade, para que você viva com mais qualidade e equilíbrio.
           </p>
           <a
             href={WA_LINK}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 bg-primary text-white font-body text-xs tracking-widest px-8 py-4 rounded-full hover:bg-primary/85 transition-all duration-300"
+            className="inline-flex items-center gap-3 bg-[hsl(195,70%,45%)] text-white font-body text-xs tracking-widest px-8 py-4 rounded-full hover:bg-[hsl(195,70%,38%)] transition-all duration-300 shadow-lg shadow-cyan-900/40"
           >
             <MessageCircle className="w-4 h-4" />
             AGENDAR CONSULTA
@@ -186,7 +196,7 @@ function Testimonials() {
   }, []);
 
   return (
-    <section className="bg-[hsl(35,20%,91%)] py-24 px-6">
+    <section className="bg-[hsl(210,30%,94%)] py-24 px-6">
       <div className="max-w-4xl mx-auto text-center">
         <h2 className="font-heading text-4xl md:text-5xl font-light text-foreground mb-3">
           O que dizem meus pacientes
@@ -249,12 +259,13 @@ function Sobre() {
   return (
     <section id="sobre" className="bg-background">
       <div className="max-w-7xl mx-auto grid lg:grid-cols-2 min-h-[80vh]">
-        {/* Photo */}
-        <div className="relative overflow-hidden min-h-[50vh] lg:min-h-0">
+        {/* Photo with transparent bg */}
+        <div className="relative flex items-end justify-center min-h-[50vh] lg:min-h-0 bg-[hsl(210,25%,93%)]">
           <img
-            src={DOCTOR_IMG}
-            alt="Dr. Yan"
-            className="absolute inset-0 w-full h-full object-cover object-top"
+            src={ABOUT_IMG}
+            alt="Dr. Luis Eduardo Younis"
+            className="w-auto h-full max-h-[540px] object-contain object-bottom"
+            style={{ filter: "drop-shadow(0 10px 40px rgba(30,50,100,0.18))" }}
           />
         </div>
         {/* Text */}
@@ -263,20 +274,20 @@ function Sobre() {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="flex flex-col justify-center px-10 lg:px-16 py-20 bg-[hsl(35,20%,91%)]"
+          className="flex flex-col justify-center px-10 lg:px-16 py-20 bg-[hsl(210,28%,93%)]"
         >
           <p className="font-body text-xs tracking-[0.3em] text-primary uppercase mb-4">SOBRE MIM</p>
           <h2 className="font-heading text-4xl md:text-5xl font-light text-foreground leading-tight mb-8">
             Quem sou e como<br />cheguei até aqui
           </h2>
           <p className="font-body text-sm text-foreground/70 leading-relaxed mb-5">
-            Olá! Sou o Dr. Yan, médico formado pela Faculdade de Medicina da Universidade de São Paulo (USP). Meu interesse pela medicina começou cedo, acompanhando de perto familiares em tratamentos que transformaram suas vidas.
+            Olá! Sou o Dr. Luis Eduardo Younis, médico com pós-graduação em Medicina da Família e Comunidade. Meu interesse pela medicina começou cedo, motivado pela vontade de cuidar das pessoas de forma integral, considerando não apenas a doença, mas o contexto de vida de cada paciente.
           </p>
           <p className="font-body text-sm text-foreground/70 leading-relaxed mb-5">
-            Realizei residência em Clínica Médica no Hospital das Clínicas e, posteriormente, especialização em Medicina Preventiva. Durante minha formação, estagiei em instituições de referência, incluindo a Cleveland Clinic (EUA), onde vi de perto como a tecnologia pode transformar a medicina.
+            Com formação sólida e comprometimento constante com a atualização científica, ofereço um atendimento humanizado que vai além do diagnóstico — meu objetivo é ser um parceiro de saúde de longo prazo para cada pessoa que me procura.
           </p>
           <p className="font-body text-sm text-foreground/70 leading-relaxed mb-10">
-            Hoje atendo presencialmente em São Paulo e também realizo consultas online. Acredito que cada paciente tem uma história única — será um prazer fazer parte da sua.
+            Atendo presencialmente e também realizo consultas online. Acredito que cada paciente tem uma história única — será um prazer fazer parte da sua.
           </p>
           <a
             href={WA_LINK}
@@ -364,7 +375,7 @@ function Especialidades() {
   return (
     <section id="especialidades" className="bg-background">
       {/* Header */}
-      <div className="bg-primary/90 py-20 px-6">
+      <div className="bg-[hsl(215,55%,22%)] py-20 px-6">
         <div className="max-w-7xl mx-auto">
           <p className="font-body text-xs tracking-[0.3em] text-white/70 uppercase mb-3">ÁREAS DE ATUAÇÃO</p>
           <h2 className="font-heading text-5xl md:text-6xl font-light text-white">Especialidades</h2>
@@ -420,7 +431,7 @@ function Atendimento() {
   };
 
   return (
-    <section id="atendimento" className="bg-[hsl(35,20%,91%)] py-24 px-6">
+    <section id="atendimento" className="bg-[hsl(210,30%,94%)] py-24 px-6">
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-16">
           <p className="font-body text-xs tracking-[0.3em] text-primary uppercase mb-3">CONTATO</p>
@@ -518,11 +529,11 @@ function Atendimento() {
 /* ─── FOOTER ─── */
 function Footer() {
   return (
-    <footer className="bg-foreground py-10 px-6">
+    <footer className="bg-[hsl(215,55%,18%)] py-10 px-6">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-        <p className="font-heading text-2xl font-light tracking-widest text-white">DR. YAN</p>
+        <p className="font-heading text-2xl font-light tracking-widest text-white">DR. LUIS EDUARDO</p>
         <p className="font-body text-xs text-white/40 tracking-wide">
-          © {new Date().getFullYear()} Dr. Yan — CRM/SP 000000. Todos os direitos reservados.
+          © {new Date().getFullYear()} Dr. Luis Eduardo Younis — CRM/SP 000000. Todos os direitos reservados.
         </p>
         <a
           href={WA_LINK}
