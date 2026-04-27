@@ -96,7 +96,7 @@ export default function HeroPage({ setActive, heroImg }) {
             transition={{ duration: 1, ease: "easeOut" }}
             className="max-w-xl"
           >
-            // <p className="font-body text-xs tracking-[0.3em] text-white/60 uppercase mb-4">CRM/SP 000000</p>
+             <p className="font-body text-xs tracking-[0.3em] text-white/60 uppercase mb-4"></p>
             <h1 className="font-heading text-6xl md:text-8xl font-light text-white leading-none mb-1">DR. LUIS</h1>
             <h1 className="font-heading text-6xl md:text-8xl font-light text-[hsl(195,70%,70%)] leading-none mb-3">EDUARDO</h1>
             <p className="font-body text-xs tracking-[0.35em] text-white/70 uppercase mb-8">MEDICINA DA FAMÍLIA E COMUNIDADE</p>
