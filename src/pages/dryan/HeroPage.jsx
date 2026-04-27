@@ -4,11 +4,11 @@ import { MessageCircle, ChevronLeft, ChevronRight } from "lucide-react";
 import { WA_LINK } from "../DrYan";
 
 const testimonials = [
-  { text: "O Dr. Yan mudou minha relação com a saúde. Pela primeira vez me senti verdadeiramente ouvido em uma consulta. Diagnóstico preciso, tratamento eficaz e um cuidado que vai além do consultório.", author: "M. S." },
+  { text: "O Dr. Luis Eduardo mudou minha relação com a saúde. Pela primeira vez me senti verdadeiramente ouvido em uma consulta. Diagnóstico preciso, tratamento eficaz e um cuidado que vai além do consultório.", author: "M. S." },
   { text: "Profissional excepcional. Atencioso, didático e sempre atualizado. Explicou cada detalhe do meu tratamento de forma clara e me deu toda a confiança que eu precisava.", author: "R. F." },
-  { text: "Fui indicada por uma amiga e não me arrependo. O Dr. Yan é humano, gentil e extremamente competente. Já recomendei para toda minha família.", author: "A. C." },
+  { text: "Fui indicada por uma amiga e não me arrependo. O Dr. Luis Eduardo é humano, gentil e extremamente competente. Já recomendei para toda minha família.", author: "A. C." },
   { text: "Finalmente encontrei um médico que me trata como pessoa, não como número. O acompanhamento é impecável. Minha saúde melhorou muito desde que comecei o tratamento.", author: "T. L." },
-  { text: "A consulta com o Dr. Yan foi uma experiência única. Senti que ele realmente se importa com o bem-estar dos pacientes. Voltei muito mais tranquilo e confiante.", author: "J. P." },
+  { text: "A consulta com o Dr. Luis Eduardo foi uma experiência única. Senti que ele realmente se importa com o bem-estar dos pacientes. Voltei muito mais tranquilo e confiante.", author: "J. P." },
 ];
 
 function Testimonials() {
@@ -77,8 +77,9 @@ export default function HeroPage({ setActive, heroImg }) {
   return (
     <div>
       {/* Hero */}
-      <section className="relative h-screen min-h-[600px] flex items-center overflow-hidden bg-gradient-to-br from-[hsl(215,55%,18%)] via-[hsl(215,50%,24%)] to-[hsl(195,60%,30%)]">
-        <div className="absolute right-0 bottom-0 h-full flex items-end justify-end pointer-events-none select-none">
+      <section className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-[hsl(215,55%,18%)] via-[hsl(215,50%,24%)] to-[hsl(195,60%,30%)]">
+        {/* Photo — hidden on mobile, visible from lg */}
+        <div className="hidden lg:flex absolute right-0 bottom-0 h-full items-end justify-end pointer-events-none select-none">
           <img
             src={heroImg}
             alt="Dr. Luis Eduardo Younis"
@@ -89,7 +90,7 @@ export default function HeroPage({ setActive, heroImg }) {
         </div>
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_left_center,_hsl(195,70%,45%,0.15)_0%,_transparent_60%)]" />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 w-full">
+        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 w-full py-32 lg:py-0">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
