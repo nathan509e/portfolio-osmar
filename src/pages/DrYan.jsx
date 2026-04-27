@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight, Menu, X, MessageCircle, Phone, Mail, MapPin, Clock, Plus, Minus } from "lucide-react";
 
-const HERO_IMG = "https://media.base44.com/images/public/69e9655d2e648f5936dc0caa/96691f67c_fotodu3-Photoroom.png";
+const HERO_IMG = "https://media.base44.com/images/public/69e9655d2e648f5936dc0caa/573a5bbfa_96691f67c_fotodu3-Photoroom1.png";
 const ABOUT_IMG = "https://media.base44.com/images/public/69e9655d2e648f5936dc0caa/dd39ff375_fotodudu2-Photoroom.png";
 const WHATSAPP = "5511999990000";
 const WA_LINK = `https://wa.me/${WHATSAPP}?text=Olá,%20Dr.%20Luis%20Eduardo!%20Gostaria%20de%20agendar%20uma%20consulta.`;
