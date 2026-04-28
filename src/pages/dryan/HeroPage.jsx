@@ -106,7 +106,7 @@ export default function HeroPage({ setActive, heroImg }) {
             </p>
             <div className="flex flex-wrap gap-4">
               <a href={WA_LINK} target="_blank" rel="noopener noreferrer"
-                className="inline-flex items-center gap-3 bg-[hsla(219, 74%, 44%, 1.00)] text-white font-body text-xs tracking-widest px-8 py-4 rounded-full hover:bg-[hsla(212, 70%, 38%, 1.00)] transition-all duration-300 shadow-lg shadow-cyan-900/40">
+                className="inline-flex items-center gap-3 bg-[hsla(200, 68%, 47%, 1.00)] text-white font-body text-xs tracking-widest px-8 py-4 rounded-full hover:bg-[hsla(212, 70%, 38%, 1.00)] transition-all duration-300 shadow-lg shadow-cyan-900/40">
                 <MessageCircle className="w-4 h-4" />
                 AGENDAR CONSULTA
               </a>
